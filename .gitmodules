@@ -1,3 +1,0 @@
-[submodule "supervised_unsupervised_anomaly"]
-	path = supervised_unsupervised_anomaly
-	url = git@github.com:vincentgeppert/supervised_unsupervised_anomaly.git
