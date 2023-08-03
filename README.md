@@ -3,6 +3,47 @@
 This repo is part of the following thesis **[Anomaly Detection with Model Contradictions for Autonomous Driving](https://cloud.schiller-lan.party/s/NcfsHT7K5EnAXM3)**.
 
 
+## Overview
+```bash
+└─┬ Create CODA (~ 3h) (create_coda/) 
+  │ ├─ Download all datasets (~ 1.65TB)
+  │ ├─ create_coda (~ 5min)
+  │ ├─ 2d_to_3d_point_wise_clusters (~ 2h)
+  │ ├─ (annotation_validation)
+  │ ├─ get_gt_translate_to_kittiodometry (~ 35min)
+  │ └─ (visualization)
+  │
+  └ Evaluate detection method (~ 3.5-5.5days)
+    └─┬ Setup dependecies (~ 4h)
+      │ ├─ get_kitti_raw_mapping (~ instant)
+      │ ├─ Download KITTI_Raw(~ 28GB)
+      │ ├─ Download pretrained models
+      │ ├─ Setup environments (~ 3h)      
+      │ └─ set_indices_for_detection_method (~ instant)
+      │
+      ├ Create CODA in KITTIodometry format (~ 6h) (evaluate_detection_method/create_sequences/) 
+      │ ├─ kitti_raw2poses (~ 1min)
+      │ ├─ nuscenes2poses (~ 3min)
+      │ ├─ once2poses (~ 3min)
+      │ └─ create_coda_for_detection_method (~ 6h)
+      │
+      ├ Run the detection method (~ 3-5days) (supervised_unsupervised_anomaly/)
+      │ ├─ sup_semantic
+      │ ├─ sup_mos 
+      │ ├─ combine semantic and mos
+      │ ├─ sup_ground_seg
+      │ ├─ self_scene_flow
+      │ ├─ self_odometry
+      │ ├─ self_motion_labels_2stage
+      │ ├─ compare_labels_and_cluster
+      │ └─ map_anomalies_on_image
+      │
+      └ Evaluate the detection method (~ 5.5h) (evaluate_detection_method/)
+        ├─ create_evaluation_images (~ 2h)
+        ├─ create_evaluation_annotations (~ 2.5h)
+        └─ evaluate_detection_method (~ 30sec)                
+```
+
 ## Requirements
 * Clone this repo including the submodules: 
 ```bash
@@ -151,7 +192,7 @@ python supervised_unsupervised_anomaly/anomaly_detection/compare_and_cluster/com
 python supervised_unsupervised_anomaly/anomaly_detection/compare_and_cluster/map_anomalies_on_image.py
 ```
 
-### Evaluate the detection method
+### Evaluate the detection method (evaluate_detection_method/)
 * Check ToDos and run ```evaluate_detection_method/create_evaluation_images.ipynb (runtime: ~ 2h)``` and ```evaluate_detection_method/create_evaluation_annotations.ipynb (runtime: ~ 2.5h)```. 
 * Check ToDos and run ```evaluate_detection_method/evaluate_detection_method.ipynb (runtime: ~ 30sec)```. This creates the metrics for the evaluation.
 * (Optional: Run visualizations from the ```evaluate_detection_method/visualization```, to create the plots used in my thesis. All visualizations are save in ```graphics```)
