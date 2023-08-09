@@ -1,6 +1,6 @@
 # Anomaly Detection with Model Contradictions for Autonomous Driving
 
-This repo is part of the following thesis **[Anomaly Detection with Model Contradictions for Autonomous Driving](https://cloud.schiller-lan.party/s/NcfsHT7K5EnAXM3)**.
+This repo is part of the following thesis **[Anomaly Detection with Model Contradictions for Autonomous Driving](https://publikationen.bibliothek.kit.edu/1000161266)**.
 
 
 ## Overview
